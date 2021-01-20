@@ -1,0 +1,54 @@
+<div>
+
+  <div>
+    <h2>legendary hero: {{legendaryHero.name | uppercase}}</h2>
+    <div><span>id: </span>{{legendaryHero.id}}</div>
+    <label>name:
+      <input [(ngModel)]="legendaryHero.name" placeholder="name" /> <!-- controlled input -->
+    </label>
+  </div>
+
+  <!-- <div> -->
+    <!-- <ul class="heroes"> -->
+      <!-- mapping through arr -->
+      <!-- <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero"> -->
+        <!-- map -->
+        <!-- onClick event handling -->
+        <!-- toggle classes if selected -->
+
+        <!-- <span class="badge">{{hero.id}}</span> -->
+        <!-- <span class='regTxt'>{{hero.name}}</span> -->
+        <!-- <a routerLink="/detail/{{hero.id}}"> -></a> -->
+        <!-- go to specific route -->
+      <!-- </li> -->
+    <!-- </ul> -->
+  <!-- </div> -->
+
+
+  <span>Select to view details and edit</span>
+
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+      <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+    </li>
+  </ul>
+
+
+  <div>
+    <label>Hero name:
+      <input #heroName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(heroName.value); heroName.value=''">
+      add
+    </button>
+  </div>
+
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+  <!-- nesting components inside components -->
+  <!-- passing props down -->
+
+</div>
